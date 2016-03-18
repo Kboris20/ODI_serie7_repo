@@ -16,6 +16,10 @@
         <servlet-name>AskNameToStoreSession</servlet-name>
         <servlet-class>edu.hearc.ODI.servlets.AskNameToStoreSession</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Session</servlet-name>
+        <servlet-class>edu.hearc.ODI.servlets.Session</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DisplayMessage</servlet-name>
         <url-pattern>/DisplayMessage</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>AskNameToStoreSession</servlet-name>
         <url-pattern>/AskNameToStoreSession</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Session</servlet-name>
+        <url-pattern>/Session</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

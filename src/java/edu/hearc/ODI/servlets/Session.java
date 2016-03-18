@@ -8,6 +8,7 @@ package edu.hearc.ODI.servlets;
 import edu.hearc.ODI.utils.LongToDate;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author boris.klett
  */
-@WebServlet(name = "DisplayInformations", urlPatterns = {"/DisplayInformations"})
-public class DisplayInformations extends HttpServlet {
+@WebServlet(name = "Session", urlPatterns = {"/Session"})
+public class Session extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,40 +34,13 @@ public class DisplayInformations extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
         HttpSession session = request.getSession(true); // récupération ou création d’une session
-        
-        String prenom = (String) session.getAttribute("prenom");
-        LongToDate.setSessionDate(session.getCreationTime());
+        String prenom = request.getParameter("prenom");
+        session.setAttribute("prenom", prenom);
 
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DisplayInformations</title>");
-            out.println("</head>");
-            out.println("<body>");
-            
-            out.println("<h1><i>Display informations</i></h1>");
-            out.println("<hr/>");
-            out.println("<br/>");
-            out.println("<br/>");
-            out.println("<h3>Mon prénom est: " + prenom + "</h3>");
-            out.println("<h3>L'ID de ma session est: " + session.getId() + "</h3>");
-            out.println("<h3>La session à été créée le: " + LongToDate.toStringg() + "</h3>");
-            out.println("<br/>");
-            out.println("<br/>");
-            out.println("<a href=\""+request.getContextPath()+"/AskNameToDisplay\"><input type=\"submit\" value=\"Retour\"/></a>");
-            out.println("<br/>");
-            out.println("<br/>");
-            out.println("<hr/>");
-            
-            out.println("</body>");
-            out.println("</html>");
-        }
-
+        RequestDispatcher dispatcher;
+        dispatcher = request.getRequestDispatcher("/DisplayInformations");
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,7 +56,6 @@ public class DisplayInformations extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**

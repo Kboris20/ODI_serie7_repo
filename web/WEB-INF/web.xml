@@ -12,6 +12,10 @@
         <servlet-name>AskNameToDisplay</servlet-name>
         <servlet-class>edu.hearc.ODI.servlets.AskNameToDisplay</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AskNameToStoreSession</servlet-name>
+        <servlet-class>edu.hearc.ODI.servlets.AskNameToStoreSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DisplayMessage</servlet-name>
         <url-pattern>/DisplayMessage</url-pattern>
@@ -24,12 +28,16 @@
         <servlet-name>AskNameToDisplay</servlet-name>
         <url-pattern>/AskNameToDisplay</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AskNameToStoreSession</servlet-name>
+        <url-pattern>/AskNameToStoreSession</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>AskNameToDisplay</welcome-file>
+        <welcome-file>AskNameToStoreSession</welcome-file>
     </welcome-file-list>
 </web-app>

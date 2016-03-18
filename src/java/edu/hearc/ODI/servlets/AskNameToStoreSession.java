@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package edu.hearc.ODI.servlets;
 
 import java.io.IOException;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author boris.klett
  */
-@WebServlet(name = "AskNameToDisplay", urlPatterns = {"/AskNameToDisplay"})
-public class AskNameToDisplay extends HttpServlet {
+@WebServlet(name = "AskNameToStoreSession", urlPatterns = {"/AskNameToStoreSession"})
+public class AskNameToStoreSession extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,12 +38,12 @@ public class AskNameToDisplay extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AskNameToDisplay</title>");
+            out.println("<title>Servlet AskNameToStoreSession</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<FORM Method=\"GET\" Action=\"http://localhost:8080/Serie7_servlets/DisplayInformations\">");
+            out.println("<FORM Method=\"GET\" Action=\"http://localhost:8080/Serie7_servlets/Session\">");
 
-            out.println("<h1><i>Ask name to display</i></h1>");
+            out.println("<h1><i>Ask name to store a session</i></h1>");
             out.println("<hr/>");
             out.println("<br/>");
             out.println("<br/>");

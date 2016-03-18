@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "DisplayInformations", urlPatterns = {"/DisplayInformations"})
 public class DisplayInformations extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,6 +51,9 @@ public class DisplayInformations extends HttpServlet {
         HttpSession session = request.getSession(true); // récupération ou création d’une session
         //session.setAttribute("nom", "Levert");
         String prenom = request.getParameter("prenom");
+        //Date sessionDate = new Date(session.getCreationTime()); 
+        LongToDate.setSessionDate(session.getCreationTime());
+
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -66,7 +68,7 @@ public class DisplayInformations extends HttpServlet {
             out.println("<br/>");
             out.println("<h3>Mon prénom est: " + prenom + "</h3>");
             out.println("<h3>L'ID de ma session est: " + session.getId() + "</h3>");
-            out.println("<h3>La session à été créée à: " + session.getCreationTime() + "</h3>");
+            out.println("<h3>La session à été créée le: " + LongToDate.toStringg() + "</h3>");
             out.println("</body>");
             out.println("</html>");
         }

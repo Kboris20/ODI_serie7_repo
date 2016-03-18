@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package servlets;
+package edu.hearc.ODI.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package edu.hearc.ODI.servlets;
 
+import edu.hearc.ODI.utils.LongToDate;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package servlets;
+package edu.hearc.ODI.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

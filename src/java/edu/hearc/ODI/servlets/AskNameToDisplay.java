@@ -40,7 +40,7 @@ public class AskNameToDisplay extends HttpServlet {
             out.println("<title>Servlet AskNameToDisplay</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<FORM Method=\"GET\" Action=\"http://localhost:8080/Serie7_servlets/DisplayInformations\">");
+            out.println("<FORM Method=\"GET\" Action=\"http://localhost:8080/Serie7_servlets/CheckSession\">");
 
             out.println("<h1><i>Ask name to display</i></h1>");
             out.println("<hr/>");

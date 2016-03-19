@@ -5,9 +5,7 @@
  */
 package edu.hearc.ODI.servlets;
 
-import edu.hearc.ODI.utils.LongToDate;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,12 +32,13 @@ public class Session extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true); // récupération ou création d’une session
         String prenom = request.getParameter("prenom");
-        session.setAttribute("prenom", prenom);
+
+        HttpSession session =  request.getSession();
+        session.setAttribute(prenom, "ok");
 
         RequestDispatcher dispatcher;
-        dispatcher = request.getRequestDispatcher("/DisplayInformations");
+        dispatcher = request.getRequestDispatcher("/DisplayInformations?prenom=" + prenom);
         dispatcher.forward(request, response);
     }
 
